@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Feedy from './Components/Feedy';
+import Navbar from './Components/Navbar';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import VideoId from './Components/VideoId';
+import Relatedchannel from './Components/Relatedchannel';
+import SearchFeed from './Components/SearchFeed';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Navbar/>
+      
+      
+      <Routes>
+        
+        
+        <Route path='/' element={<Feedy/>}></Route>
+        <Route path= "/videos/:videoId"  element={<VideoId/>}></Route>
+        <Route path= "/channel/:channelId"  element={<Relatedchannel/>}></Route>
+        <Route path= "/search/:searchTerm"  element={<SearchFeed/>}></Route>
+      </Routes>
+    
+      </BrowserRouter>
+     
+     
+   
     </div>
   );
 }
